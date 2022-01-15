@@ -1,16 +1,15 @@
-// const productDetailService = require('./productDetailService')
+const CustomerDetailService = require('./CustomerDetailService')
 const {models} = require('../../models')
 
-exports.CustomerDetail = async (req, res, next) => {
+exports.customerDetail = async (req, res, next) => {
     const id = req.params.id;
     const page = req.query.page;
-    const itemPerPage = 3;
     if(page){
-        const customer = await models.customers.findOne({where: {id: id}, raw: true})
-        res.render('productDetail', {customer});
+        const customer = await CustomerDetailService.find_customer(id);
+        res.render('customerDetail', {customer});
     }
     else{
-        const customer = await models.customers.findOne({where: {id: id}, raw: true})
-        res.render('productDetail', {customer});
+        const customer = await CustomerDetailService.find_customer(id);
+        res.render('customerDetail', {customer});
     }
 }

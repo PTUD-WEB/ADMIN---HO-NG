@@ -4,5 +4,5 @@ const CustomerDetailController = require('./CustomerDetailController')
 /* GET home page. */
 // router.get('/', ProductController.list)
 router.use(express.static('public'));
-router.get('/:id', CustomerDetailController.CustomerDetail);
+router.get('/:id', CustomerDetailController.customerDetail);
 module.exports = router;
